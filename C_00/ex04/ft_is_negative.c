@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:42:36 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/06 17:42:38 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/06 18:00:50 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_is_negative(int n)
 	{
 		write(1, "P", 1);
 	}
-	else if (n < 0 )
+	else if (n < 0)
 	{
 		write(1, "N", 1);
 	}
