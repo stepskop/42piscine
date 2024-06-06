@@ -8,7 +8,7 @@ void	ft_print_reverse_alphabet(void)
 	while (ch >= 'a')
 	{
 		write(1, &ch, 1);
-		ch++;
+		ch--;
 	}
 }
 
