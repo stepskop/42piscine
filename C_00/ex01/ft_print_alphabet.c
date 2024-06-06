@@ -14,8 +14,9 @@ void	ft_print_alphabet(void)
 
 //Uncomment to test
 /*
-void	main(void)
+int	main(void)
 {
 	ft_print_alphabet();
+	return (0);
 }
 */
