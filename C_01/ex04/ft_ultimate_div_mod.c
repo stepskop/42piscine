@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:02:20 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/07 09:11:22 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/08 00:40:44 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,11 @@ int	main(void)
 {
 	int a;
 	int	b;
-	int* ptr_a;
-	int* ptr_b;
-
-	ptr_a = &a;
-	ptr_b = &b;
 
 	a = 5;
 	b = 3;
 
-	ft_ultimate_div_mod(ptr_a, ptr_b);
+	ft_ultimate_div_mod(&a, &b);
 
 	printf("%d", a);
 	printf("%d", b);

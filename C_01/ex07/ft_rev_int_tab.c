@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 08:51:22 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 00:40:11 by sskopek          ###   ########.fr       */
+/*   Created: 2024/06/08 00:41:50 by sskopek           #+#    #+#             */
+/*   Updated: 2024/06/08 00:54:13 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_div_mod(int a, int b, int *div, int *mod)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	*div = a / b;
-	*mod = a % b;
+	int	i;
+	int	tmp;
+
+	i = 0;
+	while (i < (size / 2))
+	{
+		tmp = tab[i];
+		tab[i] = tab[size - 1 - i];
+		tab[size - 1 - i] = tmp;
+		i++;
+	}
 }
 
 // Uncomment for testing
 /*
 #include <stdio.h>
-
 int	main(void)
 {
-	int a;
-	int	b;
-	int div;
-	int mod;
-
-	a = 5;
-	b = 3;
-
-	ft_div_mod(a, b, &div, &mod);
-
-	printf("%d", div);
-	printf("%d", mod);	
-	return (0);
+	int	i;
+	int	nums[] = {1, 5, 7, 8, 4, 2, 5, 0};
+	
+	ft_rev_int_tab(nums, 8);
+	i = 0;
+	while (i < 8)
+	{
+		printf("%d", nums[i]);
+		i++;
+	}
+	
 }
 */

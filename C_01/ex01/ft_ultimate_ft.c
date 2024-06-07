@@ -6,12 +6,9 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:21:45 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/06 12:21:53 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/08 00:55:02 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// Uncomment for testing
-//#include <unistd.h>
 
 void	ft_ultimate_ft(int *********nbr)
 {
@@ -20,6 +17,8 @@ void	ft_ultimate_ft(int *********nbr)
 
 // Uncomment for testing
 /*
+#include <unistd.h>
+
 int main(void)
 {
 	int	n;
