@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/08 12:15:16 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 19:55:32 by sskopek          ###   ########.fr       */
+/*   Created: 2024/06/08 19:48:38 by sskopek           #+#    #+#             */
+/*   Updated: 2024/06/08 20:23:10 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
+	unsigned int	src_len;
 	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (src[i] != '\0' && i < size - 1)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	dest[i + 1] = '\0';
+	src_len = 0;
+	while (src[src_len] != '\0')
+		src_len++;
+	return (src_len);
 }
+
 /*
 #include <stdio.h>
-int main()
+int	main()
 {
-	char *str_a = "MirecekJePan";
-	char str_b[0];
+	char	*src = "Mirek je superfrajer";
+	char	dst[20];
+	unsigned int	i;
 
-	ft_strncpy(str_b, str_a, 13);
+	i = ft_strlcpy(dst, src, 21);
 
-	printf("%s", str_b);
+	printf("%d\n", i);
+	printf("%s", dst);
 }
 */
