@@ -44,7 +44,8 @@ void	mid_line(int width)
 	if (width == 1)		// if width is only 1, print one B 
 	{
 		ft_putchar('B');
-	} else if (width >= 2) // if width is 2 or more, print BB with (widht - 2)times 'space' between them
+	} 
+	else if (width >= 2) // if width is 2 or more, print BB with (widht - 2)times 'space' between them
 	{
 		ft_putchar('B');
 		i = 0;
