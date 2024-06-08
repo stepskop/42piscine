@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 19:03:33 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 19:38:41 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:41:32 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (is_alpha_num(str[i]) == 1)
+		if (is_alpha_num(str[i]))
 		{
 			if (str[i] >= 97 && str[i] <= 122)
 			{

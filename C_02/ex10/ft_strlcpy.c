@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 19:48:38 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 20:23:10 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:42:48 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i + 1] = '\0';
+	dest[i] = '\0';
 	src_len = 0;
 	while (src[src_len] != '\0')
 		src_len++;

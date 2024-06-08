@@ -6,25 +6,9 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:54:54 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 14:15:13 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:23:29 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_number(char c)
-{
-	char	n;
-
-	n = '0';
-	while (n <= '9')
-	{
-		if (c == n)
-		{
-			return (1);
-		}
-		n++;
-	}
-	return (0);
-}
 
 int	ft_str_is_numeric(char *str)
 {
@@ -37,8 +21,7 @@ int	ft_str_is_numeric(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		is_number(str[i]);
-		if (is_number(str[i]) == 0)
+		if (str[i] < '0' || str[i] > '9')
 		{
 			return (0);
 		}

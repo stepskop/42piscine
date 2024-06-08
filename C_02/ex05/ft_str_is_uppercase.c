@@ -6,25 +6,9 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 18:29:05 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 18:32:38 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:27:43 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_uppercase(char c)
-{
-	char	a;
-
-	a = 'A';
-	while (a <= 'Z')
-	{
-		if (c == a)
-		{
-			return (1);
-		}
-		a++;
-	}
-	return (0);
-}
 
 int	ft_str_is_uppercase(char *str)
 {
@@ -37,8 +21,7 @@ int	ft_str_is_uppercase(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		is_uppercase(str[i]);
-		if (is_uppercase(str[i]) == 0)
+		if (str[i] < 'A' || str[i] > 'Z')
 		{
 			return (0);
 		}

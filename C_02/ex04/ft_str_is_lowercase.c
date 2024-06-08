@@ -6,25 +6,9 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 18:22:23 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 18:28:12 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:26:40 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_lowercase(char c)
-{
-	char	a;
-
-	a = 'a';
-	while (a <= 'z')
-	{
-		if (c == a)
-		{
-			return (1);
-		}
-		a++;
-	}
-	return (0);
-}
 
 int	ft_str_is_lowercase(char *str)
 {
@@ -37,8 +21,7 @@ int	ft_str_is_lowercase(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		is_lowercase(str[i]);
-		if (is_lowercase(str[i]) == 0)
+		if (str[i] < 'a' || str[i] > 'z')
 		{
 			return (0);
 		}

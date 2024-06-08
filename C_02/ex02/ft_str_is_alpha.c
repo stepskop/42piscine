@@ -6,25 +6,9 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:26:54 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/08 13:48:46 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 00:24:23 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	is_alpha(char c)
-{
-	char	a;
-
-	a = 'A';
-	while (a <= 'Z')
-	{
-		if (c == a || c == (a + 32))
-		{
-			return (1);
-		}
-		a++;
-	}
-	return (0);
-}
 
 int	ft_str_is_alpha(char *str)
 {
@@ -37,7 +21,7 @@ int	ft_str_is_alpha(char *str)
 	}
 	while (str[i] != '\0')
 	{
-		if (is_alpha(str[i]) == 0)
+		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
 		{
 			return (0);
 		}
