@@ -6,32 +6,19 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 19:03:33 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/09 00:41:32 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/09 08:43:27 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	is_alpha_num(char c)
 {
-	char	a;
-	char	n;
-
-	a = 'A';
-	while (a <= 'Z')
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
-		if (c == a || c == a + 32)
-		{
-			return (1);
-		}
-		a++;
+		return (1);
 	}
-	n = '0';
-	while (n < '9')
+	else if (c >= '0' && c <= '9')
 	{
-		if (c == n)
-		{
-			return (1);
-		}
-		n++;
+		return (1);
 	}
 	return (0);
 }
