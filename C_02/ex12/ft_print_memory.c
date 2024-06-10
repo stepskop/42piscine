@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:46:27 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/09 19:32:36 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/10 18:17:58 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_print_char_data(void *addr, unsigned int size)
 	while (i < size)
 	{
 		curr_char = ((char *)addr)[i];
-		if (curr_char >= 32)
+		if (curr_char >= 32 && curr_char <= 126)
 		{
 			write(1, &addr[i], 1);
 		}
@@ -125,3 +125,12 @@ int main()
 	return 0;
 }
 */
+
+int main()
+{
+	char *str;
+
+	str = "Some string with some length. It has 5 \n\r\b\r\r special characters";
+	ft_print_memory(str, 35);
+	return 0;
+}
