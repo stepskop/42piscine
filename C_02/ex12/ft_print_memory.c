@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:46:27 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/11 00:40:53 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/11 00:42:11 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			data_size = 16;
 		else
 			data_size = size % 16;
-		
 		ft_print_hex((unsigned long)(addr + i * 16), 15);
 		write(1, ":", 1);
 		ft_print_data((unsigned char *)(addr + i * 16), data_size);
@@ -94,11 +93,3 @@ int main()
 	return 0;
 }
 */
-int main()
-{
-	char *str;
-
-	str = "Some string with some length. It has 5 \n\r\b\r\r special characters";
-	ft_print_memory(str, 35);
-	return 0;
-}
