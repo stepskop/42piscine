@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:46:27 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/10 18:17:58 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/11 00:40:53 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,84 +33,53 @@ void	ft_print_hex(unsigned long dec, unsigned int char_count)
 	write(1, hex_str, char_count);
 }
 
-void	fill_line(unsigned int size)
-{
-	if (size % 2 == 1)
-	{
-		size += 1;
-		write(1, "  ", 2);
-	}
-	while (size < 16)
-	{
-		write(1, "     ", 5);
-		size += 2;
-	}
-}
-
-void	ft_print_hex_data(void *addr, unsigned int size)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		ft_print_hex(((char *)addr)[i], 2);
-		if (i < size - 1)
-		{
-			ft_print_hex(((char *)addr)[i + 1], 2);
-			i++;
-		}
-		write(1, " ", 1);
-		i++;
-	}
-	fill_line(size);
-}
-
-void	ft_print_char_data(void *addr, unsigned int size)
+void	ft_print_data(unsigned char *addr, unsigned int size)
 {
 	char			curr_char;
 	unsigned int	i;
 
 	i = 0;
+	while (i < 16)
+	{
+		if (i % 2 == 0)
+			write(1, " ", 1);
+		if (i < size)
+			ft_print_hex((addr)[i], 2);
+		else if (i != 16)
+			write(1, "  ", 2);
+		i++;
+	}
+	write(1, " ", 1);
+	i = 0;
 	while (i < size)
 	{
-		curr_char = ((char *)addr)[i];
+		curr_char = addr[i];
 		if (curr_char >= 32 && curr_char <= 126)
-		{
 			write(1, &addr[i], 1);
-		}
 		else
-		{
 			write(1, ".", 1);
-		}
 		i++;
 	}
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	void			*current_addr;
+	unsigned int	i;
 	unsigned int	data_size;
 
-	current_addr = addr;
-	data_size = size;
-	while (current_addr < addr + size)
+	i = 0;
+	while (i * 16 < size)
 	{
-		ft_print_hex((unsigned long)current_addr, 16);
-		write(1, ": ", 2);
-		if ((data_size / 16) > 0)
-		{
-			ft_print_hex_data(current_addr, 16);
-			ft_print_char_data(current_addr, 16);
-		}
+		if (i < size / 16)
+			data_size = 16;
 		else
-		{
-			ft_print_hex_data(current_addr, data_size % 16);
-			ft_print_char_data(current_addr, data_size % 16);
-		}
+			data_size = size % 16;
+		
+		ft_print_hex((unsigned long)(addr + i * 16), 15);
+		write(1, ":", 1);
+		ft_print_data((unsigned char *)(addr + i * 16), data_size);
 		write(1, "\n", 1);
-		current_addr += 16;
-		data_size -= 16;
+		i++;
 	}
 	return (addr);
 }
@@ -125,7 +94,6 @@ int main()
 	return 0;
 }
 */
-
 int main()
 {
 	char *str;
