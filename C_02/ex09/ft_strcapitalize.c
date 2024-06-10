@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 19:03:33 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/09 08:43:27 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/10 12:01:07 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (is_alpha_num(str[i]))
 		{
-			if (str[i] >= 97 && str[i] <= 122)
+			if (str[i] >= 'a' && str[i] <= 'z')
 			{
 				str[i] = str[i] - 32;
 			}
 			i++;
 			while (is_alpha_num(str[i]))
 			{
+				if (str[i] >= 'A' && str[i] <= 'Z')
+				{
+					str[i] = str[i] + 32;
+				}
 				i++;
 			}
 		}
@@ -52,7 +56,7 @@ char	*ft_strcapitalize(char *str)
 #include <stdio.h>
 int main()
 {
-	char string[] = "This is text. It has+also -sp3cial Characters.";
+	char string[] = "salut, comment tu vas ?";
 	printf("%s\n", ft_strcapitalize(string));
 }
 */
