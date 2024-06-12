@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 08:53:02 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/12 21:50:08 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/12 21:52:14 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	{
 		ft_putnbr_base(nbr / base_len, base);
 		ft_putnbr_base(nbr % base_len, base);
-	}	
+	}
 }
 
 /*
@@ -81,10 +81,3 @@ int main()
 	printf("\n");
 }
 */
-#include <stdio.h>
-int main()
-{
-
-	ft_putnbr_base(-45, "568");
-
-}
