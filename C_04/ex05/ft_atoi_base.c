@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:05:36 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/12 19:30:17 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/12 22:34:16 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ char	*ft_numstart(char *str, int *sign)
 	*sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	while (*str == '+' || *str == '-')
+	while ((*str == '+' || *str == '-') && *str)
 	{
 		if (*str == '-')
 			*sign *= -1;
@@ -24,39 +24,20 @@ char	*ft_numstart(char *str, int *sign)
 	return (str);
 }
 
-int	ft_pow(int x, int e)
-{
-	int	i;
-	int	n;
-
-	n = 1;
-	i = 0;
-	if (e == 0)
-		return (1);
-	while (i < e)
-	{
-		n *= x;
-		i++;
-	}
-	return (n);
-}
-
 int	ft_base_check(char *base)
 {
 	int	i;
 	int	j;
-	int	base_len;
 
 	i = 0;
-	base_len = 0;
-	while (base[base_len])
-		base_len++;
+	if (!base[0] || !base[1])
+		return (0);
 	while (base[i])
 	{
-		if (base[i] == '-' || base[i] == '+')
+		if (base[i] == '-' || base[i] == '+' || base[i] <= 32 || base[i] > 126)
 			return (0);
 		j = i + 1;
-		while (j < base_len)
+		while (base[j])
 		{
 			if (base[i] == base[j])
 				return (0);
@@ -64,7 +45,7 @@ int	ft_base_check(char *base)
 		}
 		i++;
 	}
-	return (base_len);
+	return (i);
 }
 
 int	ft_charinbase(char c, char *base)
@@ -87,21 +68,17 @@ int	ft_atoi_base(char *str, char *base)
 	int		str_len;
 	int		sign;
 	int		res;
-	int		i;
 
-	res = 0;
 	str_len = 0;
 	base_len = ft_base_check(base);
-	str = ft_numstart(str, &sign);
 	if (base_len < 2)
 		return (0);
+	str = ft_numstart(str, &sign);
+	res = 0;
 	while (ft_charinbase(str[str_len], base) != -1)
-		str_len++;
-	i = 0;
-	while (i < str_len)
 	{
-		res += ft_charinbase(str[i], base) * ft_pow(base_len, str_len - 1 - i);
-		i++;
+		res = (res * base_len) + ft_charinbase(str[str_len], base);
+		str_len++;
 	}
 	return (res * sign);
 }
