@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:31:18 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/12 23:46:59 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/12 23:59:45 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(int argc, char *argv[])
 {
-	int	i;
-	int	j;
-	int	tmp;
-	int	min_i;
+	int		i;
+	int		j;
+	char	*tmp;
+	int		min_i;
 
 	(void)argc;
 	min_i = 0;
@@ -62,9 +62,9 @@ int	main(int argc, char *argv[])
 				min_i = j;
 			j++;
 		}
-		tmp = *argv[min_i];
-		*argv[min_i] = *argv[i];
-		*argv[i] = tmp;
+		tmp = argv[min_i];
+		argv[min_i] = argv[i];
+		argv[i] = tmp;
 		i++;
 	}
 	printargs(argv);
