@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:57:00 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/11 10:43:48 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/12 21:56:22 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	ft_putnbr(int nb)
 {
 	int	c;
 
+	if (nb < 0)
+	{
+		nb *= -1;
+		write(1, "-", 1);
+	}
 	if (nb / 10 > 9)
 		ft_putnbr(nb / 10);
 	else if (nb / 10 != 0)
