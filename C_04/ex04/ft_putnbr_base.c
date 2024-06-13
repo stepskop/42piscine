@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 08:53:02 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/12 21:52:14 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/13 13:40:43 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,25 @@ int	ft_base_check(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int		base_len;
+	int				base_len;
+	unsigned int	unbr;
 
 	base_len = ft_strlen(base);
 	if (ft_base_check(base))
 		return ;
 	if (nbr < 0)
 	{
-		nbr *= -1;
 		write(1, "-", 1);
+		unbr = nbr * -1;
 	}
-	if (nbr < base_len)
-		write(1, &base[nbr], 1);
-	if (nbr >= base_len)
+	else
+		unbr = (unsigned int)nbr;
+	if (unbr < (unsigned int)base_len)
+		write(1, &base[unbr], 1);
+	if (unbr >= (unsigned int)base_len)
 	{
-		ft_putnbr_base(nbr / base_len, base);
-		ft_putnbr_base(nbr % base_len, base);
+		ft_putnbr_base(unbr / base_len, base);
+		ft_putnbr_base(unbr % base_len, base);
 	}
 }
 
@@ -71,7 +74,7 @@ void	ft_putnbr_base(int nbr, char *base)
 #include <stdio.h>
 int main()
 {
-	ft_putnbr_base(3, "0123456789");
+	ft_putnbr_base(-2147483648, "0123456789");
 	printf("\n");
 	ft_putnbr_base(-45, "0123456789ABCDEF");
 	printf("\n");
