@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 13:46:27 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/11 00:42:11 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/13 19:56:30 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			data_size = 16;
 		else
 			data_size = size % 16;
-		ft_print_hex((unsigned long)(addr + i * 16), 15);
+		ft_print_hex((unsigned long)(addr + i * 16), 16);
 		write(1, ":", 1);
 		ft_print_data((unsigned char *)(addr + i * 16), data_size);
 		write(1, "\n", 1);
