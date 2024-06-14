@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 09:17:02 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/13 10:17:16 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/14 10:19:37 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ int	ft_iterative_power(int nb, int power)
 	if (power < 0)
 		return (0);
 	if (power == 0)
-	{
-		if (nb == 0)
-			return (0);
 		return (1);
-	}
 	while (power)
 	{
 		res *= nb;
