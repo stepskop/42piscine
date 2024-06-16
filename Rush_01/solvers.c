@@ -6,33 +6,33 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 17:25:12 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/16 17:41:50 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/16 17:47:09 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	is_valid(int **grid, int row, int col, int num);
 
-int		ft_strlen(char *str);
-void	print_grid(int **grid, int size);
-int		**create_grid(void);
-int		*parse_views(char *str);
-int		solve(int **grid, int *views, int row, int col);
+int	check_views(int **grid, int *views);
 
-int	main(int argc, char **argv)
+int	solve(int **grid, int *views, int row, int col)
 {
-	int	**grid;
-	int	*views;
+	int	num;
 
-	if (argc != 2 || ft_strlen(argv[1]) != 31)
+	if (row == 4)
+		return (check_views(grid, views));
+	if (col == 4)
+		return (solve(grid, views, row + 1, 0));
+	num = 1;
+	while (num <= 4)
 	{
-		write(1, "Error\n", 6);
-		return (1);
+		if (is_valid(grid, row, col, num))
+		{
+			grid[row][col] = num;
+			if (solve(grid, views, row, col + 1))
+				return (1);
+			grid[row][col] = 0;
+		}
+		num++;
 	}
-	grid = create_grid();
-	views = parse_views(argv[1]);
-	if (solve(grid, views, 0, 0))
-		print_grid(grid, 4);
-	else
-		write(1, "No solution found\n", 18);
 	return (0);
 }
