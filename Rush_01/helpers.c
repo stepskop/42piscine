@@ -6,9 +6,11 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 17:18:34 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/16 17:30:49 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/16 17:42:34 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {

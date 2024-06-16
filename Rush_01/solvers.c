@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 17:25:12 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/16 17:39:53 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/16 17:41:50 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 {
 	int	**grid;
 	int	*views;
-	int	i;
 
 	if (argc != 2 || ft_strlen(argv[1]) != 31)
 	{
