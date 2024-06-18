@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 12:01:25 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/17 16:33:35 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/18 18:46:55 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		stra_len;
 	int		i;
 
-	buffer = "";
-	if (size <= 0)
-		return (buffer);
 	stra_len = 0;
 	i = 0;
 	while (i < size)
@@ -70,14 +67,21 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	final_len = stra_len + ((size - 1) * ft_strlen(sep));
-	buffer = malloc(final_len + 1);
+	buffer = malloc(sizeof(char) * (final_len + 1));
 	return (ft_fillbuffer(strs, buffer, sep, final_len));
 }
 
 // int main(void)
 // {
-// 	char *text[] = {"Ahoj", "mirku,", "ty", "frajere."};
+// 	char *text[] = {"", "adsad"} ;
+// 	char *str;
 // 	int word_count = 4;
-// 	printf("%s", ft_strjoin(word_count, text, " -- "));
+// 	str = ft_strjoin(0, text, " -- ");
+// 	for (int i = 0; i < 1; i++)
+// 	{
+// 		str = ft_strjoin(2, text, "");
+// 		printf("%s", str);	
+// 	}
+// 	free(str);
 // 	return 0;
 // }
