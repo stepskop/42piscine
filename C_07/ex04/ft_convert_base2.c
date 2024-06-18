@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 16:53:51 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/17 21:44:21 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/18 11:41:04 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	ft_base_check(char *base)
 		return (0);
 	while (base[i])
 	{
-		if (base[i] == '-' || base[i] == '+' || base[i] <= 32 || base[i] > 126)
+		if (base[i] == '-' || base[i] == '+' || base[i] == 32 \
+		|| (base[i] >= 9 && base[i] <= 13))
 			return (0);
 		j = i + 1;
 		while (base[j])
@@ -76,9 +77,9 @@ char	*ft_hexrev(char *str)
 {
 	int	str_len;
 	int	i;
-	int tmp;
-	int sign;
-	
+	int	tmp;
+	int	sign;
+
 	str_len = ft_strlen(str);
 	i = 0;
 	sign = 0;

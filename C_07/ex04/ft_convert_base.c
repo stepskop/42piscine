@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:15:39 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/17 22:37:01 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/18 16:22:03 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,22 @@ int		ft_charinbase(char c, char *base);
 
 char	*ft_hexrev(char *str);
 
-int		get_pow(int nb, int base)
+int	get_digits(unsigned int nb, int base)
 {
-	int i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 1;
-	j = 0;
-	while (i <= nb)
+	j = 1;
+	while ((i * base) <= nb)
 	{
-		j++;
-		i *= base;
+		if ((i - 1) * base < 2147483648)
+		{
+			i *= base;
+			j++;
+		}
+		else
+			return (j);
 	}
 	return (j);
 }
@@ -44,11 +49,11 @@ char	*ft_to_base(int nbr, char *base, char *str)
 
 	base_len = ft_base_check(base);
 	if (base_len < 2)
-		return (void *)0;
+		return ((void *)0);
 	if (nbr < 0)
 	{
 		str[0] = '-';
-		unbr = nbr * -1;	
+		unbr = nbr * -1;
 	}
 	else
 		unbr = (unsigned int)nbr;
@@ -59,12 +64,12 @@ char	*ft_to_base(int nbr, char *base, char *str)
 		return (ft_to_base(unbr / base_len, base, str));
 }
 
-int		ft_from_base(char *str, char *base)
+long int	ft_from_base(char *str, char *base)
 {
-	int		base_len;
-	int		str_len;
-	int		sign;
-	int		res;
+	int			base_len;
+	int			str_len;
+	int			sign;
+	long int	res;
 
 	str_len = 0;
 	base_len = ft_base_check(base);
@@ -82,22 +87,27 @@ int		ft_from_base(char *str, char *base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int 	num;
-	char	*out;
-	int tbase_len;
+	long int	num;
+	char		*out;
+	int			tbase_len;
 
+	if (!ft_base_check(base_from) || !ft_base_check(base_to))
+		return (NULL);
 	tbase_len = ft_base_check(base_to);
 	num = ft_from_base(nbr, base_from);
-
+	if (num > 2147483647 || num < -2147483648)
+		return (NULL);
 	if (num < 0)
-		out = malloc(get_pow(num, tbase_len) + 1);
+		out = malloc(8 * (get_digits(-num, tbase_len) + 1));
 	else
-		out = malloc(get_pow(num, tbase_len));
+		out = malloc(get_digits(num, tbase_len) * 8);
 	return (ft_to_base(num, base_to, out));
 }
 
-#include <stdio.h>
-int 	main()
-{	
-	printf("%s", ft_convert_base("-101101110100101101101", "01", "0123456789ABCDEF"));
-}
+// #include <stdio.h>
+// int 	main()
+// {	
+// 	char *str;
+// 	str = ft_convert_base("-2147483648", "0123456789", "01");
+// 	printf("%s\n", str);
+// }
