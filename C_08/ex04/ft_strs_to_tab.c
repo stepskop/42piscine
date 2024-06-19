@@ -6,12 +6,11 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 08:37:47 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/19 09:31:50 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/19 13:16:42 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "ft_stock_str.h"
 
 char	*ft_strdup(char *src)
 {
