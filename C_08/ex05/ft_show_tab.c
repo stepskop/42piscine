@@ -6,11 +6,12 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 09:08:55 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/19 13:16:39 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/19 16:03:04 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_stock_str.h"
 
 void	ft_putnbr(int nb)
 {
