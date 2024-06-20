@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 11:54:20 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/18 16:17:15 by sskopek          ###   ########.fr       */
+/*   Created: 2024/06/20 13:49:58 by sskopek           #+#    #+#             */
+/*   Updated: 2024/06/20 13:49:59 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	fill_array(char **dest, char *str, char *charset)
 			j = 0;
 			while (!is_separator(str[i + j], charset))
 				j++;
-			dest[curr_word] = malloc(j);
+			dest[curr_word] = malloc(j + 1);
 			add_word(dest[curr_word], str + i, charset);
 			curr_word++;
 			i += j;
