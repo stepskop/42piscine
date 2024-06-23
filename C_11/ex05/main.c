@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 21:36:41 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/20 22:07:58 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/23 11:52:51 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 	int		n2;
 	char	*op;
 
-	if (argc < 4)
+	if (argc != 4)
 		return (1);
 	op = argv[2];
 	n1 = ft_atoi(argv[1]);
@@ -66,4 +66,5 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	ft_doop(n1, n2, op);
+	write(1, "\n", 1);
 }
