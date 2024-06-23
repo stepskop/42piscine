@@ -3,3 +3,5 @@ output
 ft_test*
 *.o
 C_09/ex01/libft.a
+BSQ/bsq
+BSQ/example_map
