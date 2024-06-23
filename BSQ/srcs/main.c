@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:48:48 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 00:23:34 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 00:34:33 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	main(int argc, char *argv[])
 		for (int i = 0; i < map.height; i++)
 		{
 			for (int j = 0; j < map.width; j++)
-			{
 				write(1, &field[i][j], 1);
-			}
 			write(1, "\n", 1);
+			free(field[i]);
 		}
+		free(field);
 	}
 	
 	// printf("%d\n", map.height);
