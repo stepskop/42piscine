@@ -6,31 +6,25 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 22:36:45 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/20 22:41:13 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/23 12:11:25 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
 	int		i;
-	int		j;
-	int		min_i;
 	char	*tmp;
 
 	i = 0;
 	while (tab[i])
 	{
-		j = i + 1;
-		min_i = i;
-		while (tab[j])
+		if (tab[i + 1] && cmp(tab[i], tab[i + 1]) > 0)
 		{
-			if (cmp(tab[min_i], tab[j]) > 0)
-				min_i = j;
-			j++;
+			tmp = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = tmp;
+			i = -1;
 		}
-		tmp = tab[min_i];
-		tab[min_i] = tab[i];
-		tab[i] = tmp;
 		i++;
 	}
 }
@@ -52,8 +46,7 @@ void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 // int main()
 // {
 // 	int i;
-// 	char *strings[5] = {"mirek", "je", "abcd", "frajer"};
-// 	strings[4] = 0;
+// 	char *strings[5] = {"mirek", "je", "abcd", "frajer", 0};
 // 	i = 0;
 // 	ft_advanced_sort_string_tab(strings, &ft_strcmp);
 // 	while (strings[i])
