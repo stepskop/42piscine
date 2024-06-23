@@ -6,19 +6,20 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 19:34:57 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/23 20:50:05 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 00:29:01 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BSQ_STRUCT_H
 # define BSQ_STRUCT_H
 
-typedef	struct s_map
+typedef struct s_map
 {
-	int	lines;
+	int		height;
+	int		width;
 	char	empt;
 	char	obst;
 	char	sqre;
-} t_map;
+}	t_map;
 
 #endif

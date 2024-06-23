@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:58:52 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/23 21:35:49 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 00:30:55 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*read_file(char *file)
 	return (buffer);
 }
 
-int	validate_metadata(char *map_file, t_map *map)
+int	validate_metadata(char *file_content, t_map *map)
 {
 	int	i;
 	int	j;
@@ -45,32 +45,93 @@ int	validate_metadata(char *map_file, t_map *map)
 
 	i = 0;
 	lines = 0;
-	if (map_file[0] == '0')
+	if (file_content[0] == '0')
 		return (0);
-	while (map_file[i] >= '0' && map_file[i] <= '9')
-		lines = (lines * 10) + map_file[i++] - 48;
+	while (file_content[i] >= '0' && file_content[i] <= '9')
+		lines = (lines * 10) + file_content[i++] - 48;
 	j = i + 3;
 	while (i < j)
 	{
-		if (!ft_is_printable(map_file[i++]))
+		if (!ft_is_printable(file_content[i++]))
 			return (1);
 	}
-	if (map_file[i] == '\n')
+	if (file_content[i] == '\n' && lines > 0)
 	{
-		map->lines = lines;
-		map->empt = map_file[i - 3];
-		map->obst = map_file[i - 2];
-		map->sqre = map_file[i - 1];
+		map->height = lines;
+		map->empt = file_content[i - 3];
+		map->obst = file_content[i - 2];
+		map->sqre = file_content[i - 1];
 		return (1);
 	}
 	return (0);
 }
 
+int	validate_field(char *f_cont, t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	map->width = 0;
+	while (*f_cont != '\n')
+		f_cont++;
+	f_cont++;
+	while ((f_cont[map->width] == map->empt || f_cont[map->width] == map->obst) \
+	&& f_cont[map->width])
+		map->width = map->width + 1;
+	while (++i < map->height)
+	{
+		j = 0;
+		while ((f_cont[j] == map->empt || f_cont[j] == map->obst) \
+		&& j < map->width)
+			j++;
+		if (j != map->width || f_cont[j] != '\n')
+			return (0);
+		f_cont += j + 1;
+	}
+	if (f_cont[((j + 1) * i)] != '\0')
+		return (0);
+	return (1);
+}
+
+char	**prep_field(char *f_cont, t_map *map)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**field;
+
+	i = -1;
+	j = 0;
+	k = 0;
+	field = malloc(sizeof(char *) * map->height);
+	if (!validate_field(f_cont, map))
+		return (NULL);
+	while (f_cont[k] != '\n')
+		k++;
+	k++;
+	while (++i < map->height)
+	{
+		field[i] = malloc(sizeof(char) * map->width);
+		j = 0;
+		while (j < map->width)
+			field[i][j++] = f_cont[k++];
+		k++;
+	}
+	return (field);
+}
+
 char	**parse_map(char *file, t_map *map)
 {
-	char	*map_file;
+	char	*file_content;
+	char	**field;
 
-	map_file = read_file(file);
-	validate_metadata(map_file, map);
-	return (NULL);
+	file_content = read_file(file);
+	if (!validate_metadata(file_content, map))
+		return (NULL);
+	field = prep_field(file_content, map);
+	free(file_content);
+	if (!field)
+		return (NULL);
+	return (field);
 }
