@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:51:56 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 13:09:57 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 14:17:31 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int	validate_solvability(char **field, t_map *map)
 				return (1);
 		}
 	}
+	ft_freefield(field, map->height);
 	return (0);
 }

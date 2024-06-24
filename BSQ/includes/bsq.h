@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:57:59 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 13:39:35 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 16:23:56 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@
 void	ft_putstro(int fd, char *str);
 int		ft_strlen(char *str);
 int		ft_is_printable(char c);
+void	ft_freefield(char **field, int map_height);
 
 // Parse
-char	**parse_map(char *file, t_map *map);
+char	**parse_map(char *f_cont, t_map *map);
 char	*read_file(char *file);
+char	*read_stdin(void);
 int		validate_metadata(char *f_cont, t_map *map);
 int		validate_field(char *f_cont, t_map *map);
 int		validate_solvability(char **field, t_map *map);

@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:58:52 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 12:58:49 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 15:13:38 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	**prep_field(char *f_cont, t_map *map)
 	i = -1;
 	j = 0;
 	k = 0;
-	field = malloc(sizeof(char *) * map->height);
 	if (!validate_field(f_cont, map))
 		return (NULL);
+	field = malloc(sizeof(char *) * map->height);
 	while (f_cont[k] != '\n')
 		k++;
 	k++;
@@ -39,18 +39,22 @@ char	**prep_field(char *f_cont, t_map *map)
 	return (field);
 }
 
-char	**parse_map(char *file, t_map *map)
+char	**parse_map(char *f_cont, t_map *map)
 {
-	char	*file_content;
 	char	**field;
 
-	file_content = read_file(file);
-	if (!validate_metadata(file_content, map))
+	if (!validate_metadata(f_cont, map))
+	{
+		free(f_cont);
 		return (NULL);
-	field = prep_field(file_content, map);
-	free(file_content);
+	}
+	field = prep_field(f_cont, map);
 	if (!field)
+	{
+		free(f_cont);
 		return (NULL);
+	}
+	free(f_cont);
 	if (!validate_solvability(field, map))
 		return (NULL);
 	return (field);
