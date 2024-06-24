@@ -1,4 +1,8 @@
-SRC = ./srcs/main.c ./srcs/parse_map.c ./srcs/ft_is_printable.c ./srcs/ft_putstro.c ./srcs/ft_strlen.c
+SRC_PARSE = ./srcs/parse/parse_map.c ./srcs/parse/read.c ./srcs/parse/validate.c
+
+SRC_GENERAL = ./srcs/general/ft_is_printable.c ./srcs/general/ft_strlen.c ./srcs/general/ft_putstro.c
+
+SRC = ./srcs/main.c ${SRC_GENERAL} ${SRC_PARSE}
 
 OBJ = ${SRC:.c=.o}
 
