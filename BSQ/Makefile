@@ -12,7 +12,7 @@ OBJ = ${SRC:.c=.o}
 
 INCLUDES = ./includes/
 
-CCLAGS = cc # -Wall -Werror -Wextra
+CCLAGS = cc -Wall -Werror -Wextra
 
 NAME = bsq
 

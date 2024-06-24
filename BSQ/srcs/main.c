@@ -6,11 +6,23 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:48:48 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 17:06:01 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 18:48:35 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bsq.h"
+
+void	bsq(char *input_str, char **field, t_map *map, t_sol *sol)
+{
+	field = parse_map(input_str, map);
+	if (field)
+	{
+		solve(field, *map, sol);
+		print_field(field, *map);
+	}
+	else
+		ft_putstro(2, "map error\n");
+}
 
 int	main(int argc, char *argv[])
 {
@@ -23,26 +35,12 @@ int	main(int argc, char *argv[])
 	sol.size = 0;
 	sol.x = 0;
 	sol.y = 0;
+	field = NULL;
 	if (argc > 1)
 	{
 		while (i < argc)
-		{
-			field = parse_map(read_file(argv[i++]), &map);
-			if (field)
-			{
-				solve(field, map, &sol);
-				print_field(field, map);
-			}
-			else
-				ft_putstro(2, "map error\n");
-		}
+			bsq(read_file(argv[i++]), field, &map, &sol);
 	}
 	else
-	{
-		field = parse_map(read_stdin(), &map);
-		if (field)
-			print_field(field, map);
-		else
-			ft_putstro(2, "map error\n");
-	}
+		bsq(read_stdin(), field, &map, &sol);
 }
