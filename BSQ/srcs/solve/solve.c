@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:25:36 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 18:35:22 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 22:08:56 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	update_sol(t_coords xy, t_coords *ij, t_sol *sol, t_map map)
 
 	j = ij->y;
 	i = ij->x;
+	if (i != -2 && (sol->size == 0))
+	{
+		sol->size = 1;
+		sol->x = xy.x;
+		sol->y = xy.y;
+		ij->y = 0;
+	}
 	if (i != -2 && j > sol->size && i > sol->size \
 	&& i + xy.x < map.width && j + xy.y < map.height)
 	{
@@ -60,6 +67,7 @@ void	apply_sol(t_sol sol, t_map map, char **field)
 	int	j;
 
 	i = -1;
+	printf("%d, %d with size of %d", sol.x, sol.y, sol.size);
 	while (++i < sol.size)
 	{
 		j = -1;
