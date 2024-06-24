@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 19:34:57 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 00:29:01 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 17:55:16 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,18 @@ typedef struct s_map
 	char	obst;
 	char	sqre;
 }	t_map;
+
+typedef struct s_sol
+{
+	int	size;
+	int	x;
+	int	y;
+}	t_sol;
+
+typedef struct s_coords
+{
+	int	x;
+	int	y;
+}	t_coords;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:57:59 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 16:23:56 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 17:05:19 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int		validate_solvability(char **field, t_map *map);
 
 // Print
 void	print_field(char **field, t_map map);
+
+// Solve
+void	solve(char **field, t_map map, t_sol *sol);
 
 #endif
