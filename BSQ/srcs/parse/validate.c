@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:51:56 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 14:17:31 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 19:29:17 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ int	validate_metadata(char *f_cont, t_map *map)
 	return (0);
 }
 
+void	line_len(char *f_cont, t_map *map)
+{
+	while ((f_cont[map->width] == map->empt || f_cont[map->width] == map->obst) \
+	&& f_cont[map->width])
+		map->width = map->width + 1;
+}
+
 int	validate_field(char *f_cont, t_map *map)
 {
 	int	i;
@@ -50,9 +57,7 @@ int	validate_field(char *f_cont, t_map *map)
 	while (*f_cont != '\n')
 		f_cont++;
 	f_cont++;
-	while ((f_cont[map->width] == map->empt || f_cont[map->width] == map->obst) \
-	&& f_cont[map->width])
-		map->width = map->width + 1;
+	line_len(f_cont, map);
 	if (f_cont[(map->width + 1) * map->height - 1] != '\n' || \
 	f_cont[(map->width + 1) * map->height])
 		return (0);
