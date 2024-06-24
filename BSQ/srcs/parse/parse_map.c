@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:58:52 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 15:13:38 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 21:38:27 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ char	**parse_map(char *f_cont, t_map *map)
 		return (NULL);
 	}
 	free(f_cont);
-	if (!validate_solvability(field, map))
-		return (NULL);
 	return (field);
 }
