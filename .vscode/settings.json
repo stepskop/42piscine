@@ -5,6 +5,7 @@
 		"unistd.h": "c",
 		"stdlib.h": "c",
 		"fcntl.h": "c",
-		"bsq_struct.h": "c"
+		"bsq_struct.h": "c",
+		"bsq.h": "c"
 	}
 }
