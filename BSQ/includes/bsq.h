@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:57:59 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 17:05:19 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 21:48:35 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	ft_freefield(char **field, int map_height);
 char	**parse_map(char *f_cont, t_map *map);
 char	*read_file(char *file);
 char	*read_stdin(void);
+void	line_len(char *f_cont, t_map *map);
+char	*f_after_meta(char *f_cont);
+int		check_height(char *f_cont, t_map *map);
 int		validate_metadata(char *f_cont, t_map *map);
 int		validate_field(char *f_cont, t_map *map);
 int		validate_solvability(char **field, t_map *map);

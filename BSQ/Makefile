@@ -1,4 +1,4 @@
-SRC_PARSE = ./srcs/parse/parse_map.c ./srcs/parse/read.c ./srcs/parse/validate.c
+SRC_PARSE = ./srcs/parse/parse_map.c ./srcs/parse/read.c ./srcs/parse/validate.c ./srcs/parse/helpers.c
 
 SRC_PRINT = ./srcs/print/print.c
 
