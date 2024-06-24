@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/23 18:48:48 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 13:40:19 by sskopek          ###   ########.fr       */
+/*   Created: 2024/06/24 13:24:42 by sskopek           #+#    #+#             */
+/*   Updated: 2024/06/24 13:29:45 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/bsq.h"
+#include "../../includes/bsq.h"
 
-int	main(int argc, char *argv[])
+void	print_field(char **field, t_map map)
 {
-	t_map	map;
-	char	**field;
-	int		i;
+	int	i;
+	int	j;
 
-	i = 1;
-	if (argc > 1)
+	i = -1;
+	while (++i < map.height)
 	{
-		while (i < argc)
-		{
-			field = parse_map(argv[i++], &map);
-			if (field)
-				print_field(field, map);
-			else
-				ft_putstro(2, "map error\n");
-		}
+		j = -1;
+		while (++j < map.width)
+			write(1, &field[i][j], 1);
+		write(1, "\n", 1);
+		free(field[i]);
 	}
+	free(field);
 }
