@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:25:36 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 22:08:56 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/24 22:13:55 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	apply_sol(t_sol sol, t_map map, char **field)
 	int	j;
 
 	i = -1;
-	printf("%d, %d with size of %d", sol.x, sol.y, sol.size);
 	while (++i < sol.size)
 	{
 		j = -1;
