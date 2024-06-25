@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:51:56 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 21:49:08 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/25 12:26:03 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,21 @@ int	validate_metadata(char *f_cont, t_map *map)
 
 	i = 0;
 	lines = 0;
-	while (f_cont[i] >= '0' && f_cont[i] <= '9')
-		lines = (lines * 10) + f_cont[i++] - 48;
-	j = i + 3;
-	while (i < j)
+	while (ft_is_printable(f_cont[i]))
+		i++;
+	if (!read_charset(f_cont, i, map))
+		return (0);
+	j = 0;
+	while (j < i - 3)
 	{
-		if (!ft_is_printable(f_cont[i++]))
+		if (f_cont[j] < '0' || f_cont[j] > '9')
 			return (0);
+		lines = (lines * 10) + f_cont[j++] - 48;
 	}
-	if (f_cont[i] == '\n' && lines > 0 && \
-	(f_cont[i - 3] != f_cont[i - 2] && f_cont[i - 2] != f_cont[i - 1]))
-	{
-		map->height = lines;
-		map->empt = f_cont[i - 3];
-		map->obst = f_cont[i - 2];
-		map->sqre = f_cont[i - 1];
-		return (1);
-	}
-	return (0);
+	if (lines < 0)
+		return (0);
+	map->height = lines;
+	return (1);
 }
 
 int	validate_field(char *f_cont, t_map *map)
