@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 17:57:59 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/25 12:14:43 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/25 22:19:23 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 
 // General
 void	ft_putstro(int fd, char *str);
