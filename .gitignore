@@ -5,3 +5,4 @@ ft_test*
 C_09/ex01/libft.a
 BSQ/bsq
 BSQ/testfiles/*
+BSQ/mapsolver.py
