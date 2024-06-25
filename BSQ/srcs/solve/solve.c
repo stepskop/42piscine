@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:25:36 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/24 22:13:55 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/25 13:42:04 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	update_sol(t_coords xy, t_coords *ij, t_sol *sol, t_map map)
 		ij->y = 0;
 	}
 	if (i != -2 && j > sol->size && i > sol->size \
-	&& i + xy.x < map.width && j + xy.y < map.height)
+	&& i + xy.x <= map.width && j + xy.y <= map.height)
 	{
 		sol->size = sol->size +1;
 		sol->x = xy.x;
