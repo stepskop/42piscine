@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 21:44:05 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/25 12:26:29 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/25 14:16:24 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	read_charset(char *f_cont, int m_len, t_map *map)
 	}
 	if (f_cont[m_len] == '\n' && \
 	(f_cont[m_len - 3] != f_cont[m_len - 2] && \
-	f_cont[m_len - 2] != f_cont[m_len - 1]))
+	f_cont[m_len - 2] != f_cont[m_len - 1] && \
+	f_cont[m_len - 3] != f_cont[m_len - 1]))
 	{
 		map->empt = f_cont[m_len - 3];
 		map->obst = f_cont[m_len - 2];
