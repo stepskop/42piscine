@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 21:36:41 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/23 11:52:51 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/25 22:07:20 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	n2 = ft_atoi(argv[3]);
 	if (n2 == 0 && op[0] == '/')
 	{
-		write(1, "Stop : division by zero\n", 25);
+		write(1, "Stop : division by zero\n", 24);
 		return (1);
 	}
 	if (n2 == 0 && op[0] == '%')
