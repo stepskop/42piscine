@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
+/*   By: sskopek <sskopek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 21:44:05 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/25 17:23:31 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/26 12:09:26 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,18 @@ int	check_height(char *f_cont, t_map *map)
 	int	line_count;
 	int	valid;
 
-	n = 0;
+	n = -1;
 	line_count = 0;
 	valid = 0;
-	while (f_cont[n])
+	while (f_cont[++n])
 	{
 		if (!valid && (f_cont[n] == map->empt || f_cont[n] == map->obst))
 			valid = 1;
-		if (f_cont[n++] == '\n')
+		if (f_cont[n] == '\n')
 			line_count++;
+		if ((f_cont[n] != map->empt && f_cont[n] != map->obst && \
+		f_cont[n] != '\n') || ((line_count == map->height) && f_cont[n + 1]))
+			return (0);
 	}
 	if (line_count != map->height || !valid)
 		return (0);
