@@ -32,14 +32,16 @@ int	main(int argc, char *argv[])
 	int		i;
 
 	i = 1;
-	sol.size = 0;
-	sol.x = 0;
-	sol.y = 0;
 	field = NULL;
 	if (argc > 1)
 	{
 		while (i < argc)
+		{
+			sol.size = 0;
+			sol.x = 0;
+			sol.y = 0;
 			bsq(read_file(argv[i++]), field, &map, &sol);
+		}
 	}
 	else
 		bsq(read_stdin(), field, &map, &sol);
