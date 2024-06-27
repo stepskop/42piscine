@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sskopek <sskopek@student.42prague.com>     +#+  +:+       +#+        */
+/*   By: sskopek <sskopek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 10:17:14 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/10 19:57:42 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/27 12:01:15 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,3 @@ char	*ft_strcat(char *dest, char *src)
 	dest[i + j] = '\0';
 	return (dest);
 }
-
-// #include <string.h>
-// #include <stdio.h>
-/*
-int main()
-{
-	char	*a = "je boss";
-	char	b[6] = "Mirek ";
-
-	char	*c = "je boss";
-	char	d[6] = "Mirek ";
-
-	printf("%s\n", ft_strcat(b, a));
-	printf("%s\n", strcat(d, c));
-	
-	return 0;
-}
-*/

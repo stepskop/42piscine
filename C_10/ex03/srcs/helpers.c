@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:02:20 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/26 22:53:09 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/27 11:45:23 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,14 @@ void	merge_string(char **dest, char **src)
 		dest_len = ft_strlen(*dest);
 	src_len = ft_strlen(*src);
 	buffer = (char *)malloc(sizeof(char) * (dest_len + src_len + 1));
-	if (*dest)
+	if (*dest && dest_len)
 	{
-		while (++i < (dest_len + src_len))
+		while (++i < dest_len)
 			buffer[i] = (*dest)[i];
-		
 		free(*dest);
 	}
 	ft_strcat(buffer, *src);
 	*dest = buffer;
-	// if (*src)
-	// 	free(*src);
+	if (*src)
+		free(*src);
 }

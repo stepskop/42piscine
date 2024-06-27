@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 20:26:35 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/26 22:53:30 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/27 11:56:28 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*read_file(char *file)
 	buffer[bytes_read] = '\0';
 	return (buffer);
 }
+
 void	append_char(char **buff, int curr_len, char c)
 {
 	char	*tmp;

@@ -6,7 +6,7 @@
 /*   By: sskopek <sskopek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:59:23 by sskopek           #+#    #+#             */
-/*   Updated: 2024/06/26 21:38:33 by sskopek          ###   ########.fr       */
+/*   Updated: 2024/06/27 12:18:28 by sskopek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	print_last_ascii(char *str, int last)
 	}
 	ft_putstro(1, " ");
 	ft_putstrn(&str[last - f_len % 16], f_len % 16 + 1);
-	ft_putstro(1, "\n");
 }
 
 void	print_ascii(char *str)
