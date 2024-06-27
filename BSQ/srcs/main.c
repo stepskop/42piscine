@@ -33,6 +33,9 @@ int	main(int argc, char *argv[])
 
 	i = 1;
 	field = NULL;
+	sol.size = 0;
+	sol.x = 0;
+	sol.y = 0;
 	if (argc > 1)
 	{
 		while (i < argc)
